@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#20243A"/>
+  <!-- Golden Sun Accent -->
+  <circle cx="16" cy="11" r="5" fill="#D7A53B"/>
+  <!-- Coastal Wave/Island Silhouette -->
+  <path d="M4 22c3-1.8 6.5-1.8 9.5 0s6.5 1.8 9.5 0c2-1.2 3.5-1 5 .2V28H4v-6z" fill="#3F6654"/>
+  <!-- Refined Water Line -->
+  <path d="M4 24.5c3-1.2 6.5-1.2 9.5 0s6.5 1.2 9.5 0c2-.8 3.5-.6 5 .2V28H4v-3.5z" fill="#FAF9F5" opacity="0.9"/>
+</svg>
