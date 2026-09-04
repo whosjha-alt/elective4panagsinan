@@ -54,8 +54,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isProd = process.env.NODE_ENV === 'production';
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isProd ? '/elective4panagsinan' : '');
+
   return (
     <html lang="en" className={`${fraunces.variable} ${manrope.variable} scroll-smooth`}>
+      <head>
+        <link rel="icon" href={`${basePath}/favicon.svg`} type="image/svg+xml" />
+      </head>
       <body className="bg-porcelain text-ink font-ui antialiased min-h-screen flex flex-col selection:bg-palm selection:text-porcelain">
         <a
           href="#main-content"

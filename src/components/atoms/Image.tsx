@@ -26,10 +26,21 @@ export const EditorialImage: React.FC<EditorialImageProps> = ({
   radius = 'md',
   hoverZoom = false,
 }) => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-  const finalSrc = src.startsWith('http') || src.startsWith('data:')
-    ? src
-    : `${basePath}${src.startsWith('/') ? '' : '/'}${src}`;
+  const isProd = process.env.NODE_ENV === 'production';
+  const defaultBasePath = isProd ? '/elective4panagsinan' : '';
+  const rawBasePath = process.env.NEXT_PUBLIC_BASE_PATH !== undefined
+    ? process.env.NEXT_PUBLIC_BASE_PATH
+    : defaultBasePath;
+
+  const basePath = rawBasePath.endsWith('/') ? rawBasePath.slice(0, -1) : rawBasePath;
+
+  let finalSrc = src;
+  if (!src.startsWith('http') && !src.startsWith('data:')) {
+    const cleanSrc = src.startsWith('/') ? src : `/${src}`;
+    finalSrc = (basePath && cleanSrc.startsWith(basePath + '/'))
+      ? cleanSrc
+      : `${basePath}${cleanSrc}`;
+  }
 
   const aspectStyles = {
     portrait: 'aspect-[3/4]',
